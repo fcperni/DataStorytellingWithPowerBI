@@ -1,4 +1,4 @@
-# DataStorytellingWithPowerBI
+# Data Storytelling With Power BI
 Slides, Power BI Desktop files and helpers used in netcoreconf.
 
 There are many tools for creating data visualizations, but one of the most common used and powerful is Power BI.
