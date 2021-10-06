@@ -14,8 +14,6 @@
 
 6. Data, tell me a story before going to bed.
 
-
-
 ## 01 - Introduction
 
 ### Introduction
@@ -92,7 +90,27 @@ Talking about context, we are going to ask ourselves several questions:
 
 In this demo we are going to create different layouts for our existing visualizations, so we can display the same information in other ways, depending on the user device.
 
-*TO BE COMPLETED*
+We are going to work with one of the initial elements that we have. We are going to work with our dashboard, but if we wanted our whole story to be readable in different devices we should create different layouts for every page or story point.
+
+As a general starting point ,we need to create our dashboard using the regular process, as we have already done.
+
+In order to create a Mobile layout, we need to click on *View > Mobile Layout* 
+
+We can see that a device similar to a phone is displayed, and our dashboard has automatically adjusted to this device. If we like this layout, our work has stopped, we don't need to do anything else. But what if we want to make some adjustments? It is extremely intuitive.
+
+We can add visuals from the right part, remove elements from the canvas or even modify them.
+
+For instance, let's remove the map, because in a horizontal layout is somehow difficult to analyze.
+
+Now we can add the pie chart that, unfortunately, was left behind. We need to make room for it, so we need to drag down the bar chart first and later the line chart.
+
+As we talked before, the process of creating visualizations in particular and stories in general is not a cascade process, but it must be an iterative process. So now that we are working with our mobile layout, we think that we can get rid of the separation between client and error server, and just focus on the amount of errors in total. We need to create a new text visualization for this purpose.
+
+We need to switch to desktop view, clicking again on the Mobile layout icon, and we are going to create a new page, containing a visualization displaying the total amount of errors.
+
+
+
+
 
 ### Visual Display
 
