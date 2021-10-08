@@ -230,17 +230,23 @@ Repeat the process for the other insights: For working hours we are going to dra
 
 For USA, drag Country to filters on this page and selected United States.
 
-For marketing purposes, we are going to compare visits from Portugal and France, our neighbors and two of the most important countries in our business. We are going to create a new page, and insert a **Line Chart** visualization.
+For marketing purposes, we are going to **compare visits from Portugal and France**, our neighbors and two of the most important countries in our business. We are going to create a new page, and insert a **Line Chart** visualization.
 
 ![image-20211008175305767](C:\Users\francisco.cruzado\AppData\Roaming\Typora\typora-user-images\image-20211008175305767.png)
 
-There we are going to filter those countries, dragging Country to the filters on this page and selecting them. We are going to drag 
+There we are going to filter those countries, dragging Country to the **filters on this visual** and selecting them. We are going to drag 
 
 - Month to Date
 - Country to Legend
-- Visits to Value
+- Visits to Value **Change the function from SUM to COUNT!!!!**
 
-Let's change the colors so we can contrast easily France vs Portugal, using some colors close to their national shirts. This will helps us contrasting and identifying each country. 
+Let's change the colors so we can contrast easily France vs Portugal, using some colors close to their national shirts. This will helps us contrasting and identifying each country.  Click on the brush, Data colors, and select appropriate colors for each country. We can get rid of the legend, by using the title of the graph. Instead of using the pre-defined title, we can add a textbox containing the desired text, and formatting it.
+
+*Comparing **French** vs **Portuguese** visits* (Font Size 20)
+
+To remove the legend, we can use the colors in the title directly, displaying French in blue and Portuguese in red. Having this text box allows us to remove both the title and the legend.
+
+Last step is to declutter our y-axis, removing the legend and gridlines (Y axis > Title & Gridlines Off)
 
 #### End
 
@@ -248,15 +254,25 @@ Create a call to action
 
 While this is nice, it is not mandatory to have a single call to action. If needed, we can aditional calls to action, keeping in mind that including many of them can scatter our audience attention and lose focus on the desired actions.
 
+We have detected two situations that must improve:
 
+Increase our Portuguese visits & Reduce errors.
 
-TO BE COMPLETED
+In storytelling, repeating is a good technique. So we can clone our line graph in order to call for an action. By this technique, we are going to separate what is going on and the desired action we want to be performed. Moreover, we can get rid of French data to focus on Portuguese data, so the focus is going to be stronger on this country.
+
+For our last call to action, we want to reduce the percentage error. For this purpose, we can compare the global error percentage with something more realistic, data from one of the top countries visits wise: Philippines.
+
+We are going to create a new page, naming it *Call to Action: Reduce errors*. In this page we are going to add two **Card** visualization, one displaying the global percentage and another displaying the Philippines error percentage as a goal.
+
+- Drag Error Percentage to Fields
+- On the right part add as filter "Philippines"
+- Change Data Label color.
+- Rename field for this visual to *Target Error % for 2021* and for the other *2020 Error %*.
+- Add a new textbox with title **2021 Goal: Reduce** **errors**, highlighting in orange the actual errors (errors) and in blue the goal 
 
 ## 06 - Data, tell me a story before going to bed.
 
-TO BE COMPLETED
-
-
+What is the best way of telling a story with Power BI? Open the Power BI Web App, navigate to our story, make it full screen and navigate throught the pages as if they were story points.
 
 ## Extra
 
