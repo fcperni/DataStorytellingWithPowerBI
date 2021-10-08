@@ -108,13 +108,23 @@ As we talked before, the process of creating visualizations in particular and st
 
 We need to switch to desktop view, clicking again on the Mobile layout icon, and we are going to create a new page, containing a visualization displaying the total amount of errors.
 
+Let's got to the **Data** view and we are goin to create a new measure, called "Errors", where we are going to count failed requests, regardless of their nature (client or server)
 
+We need to click on *New Measure* and type this formula:
 
+```
+Errors = CALCULATE(Count('Audit'[Id]), 'Audit'[Status]<>"OK")
+```
 
+After we have inserted this new measure,  we need to create a **Card** visualization and drag our brand new measure.
+
+For our sake, let's assign the same color we have used for detecting colors. In this case orange. Remember: Color consistency is key in our visualizations and even more in our stories.
+
+In this moment we can go back to our Mobile layout and add our new visualization to this layout.
 
 ### Visual Display
 
-This is the process of selecting the most appropiate visualization for each case. We are not going to go deep in this step, but think about which is the best way of representing amount of visits in our website through time.
+This is the process of selecting the most appropriate visualization for each case. We are not going to go deep in this step, but think about which is the best way of representing amount of visits in our website through time.
 
 ### Declutter
 
@@ -171,8 +181,6 @@ Let's talk about some general tips to consider on creating a story with Power BI
 - Declutter and highlight.
 - Use pages as story points.
 
-## 06 - Data, tell me a story before going to bed.
-
 ### Demo 03 - Storytelling with Data
 
 1. Create a text slide
@@ -185,3 +193,33 @@ Let's talk about some general tips to consider on creating a story with Power BI
 
 
 TO BE COMPLETED
+
+## 06 - Data, tell me a story before going to bed.
+
+TO BE COMPLETED
+
+
+
+## Extra
+
+### Resources
+
+All the materials we have used during this session, such as slides, Power BI examples and datasets are available on this  Github project.
+
+I would like to point you to my github pages site, where I have linked this repository, the one from previous sessions, and I will add more material here through time. Also, there are a couple of silly pet projects, in case you find them useful.
+
+### Bibliography
+
+*Storytelling with Data: A Data Visualization Guide for Business Professionals*
+
+[http://www.storytellingwithdata.com](http://www.storytellingwithdata.com/)
+
+*Knaflic, Cole* *Nussbaumer. Wiley (2015).*
+
+This book gathers the fundamentals of data visualization and how to communicate effectively with data.
+
+*Design is Storytelling*
+
+*Lupton, Ellen. Cooper Hewitt (2017)*
+
+This other book explores the psychology of visual perception from a narrative point of view. 
