@@ -35,7 +35,7 @@ In previous session we talked about the common steps when we work with data:
 - Data exploration.
 - Data Visualization.
 
-Today we are going to give it another twist, visually representing the steps when we analyze, interpret and communicate a dataset. :
+Today we are going to give it another twist, visually representing the steps when we analyze, interpret and present a dataset :
 
 - Data - When we start working with a dataset, it is very common to find it deorganized, mixed up and difficult to work with. It is impossible to extract any insight having data in this form.
 - Arranged - The first step we must perform is arrange our data. Grouping our data by features, such as field name, type or any other metadata, will start giving us some ideas. Now our data is prepared to be worked with.
@@ -53,11 +53,13 @@ In the previous edition, we focused on data visualization techniques, especially
 
 I didn't talk about narrative structure nor storytelling with data, so we are going to focus on this areas.
 
-This subject is interesting not only in computer science environments but it is needed in any area. Nowadays, everyone works with more or less data. Furthermore, it is very common to, after working or analyzing data, we need to present our data to an audience. In this session we will review some of the industry standards to convey our message, specially using Power BI.
+This subject is interesting not only in computer science environments but it is needed in any area. Nowadays, everyone works with more or less data. Furthermore, it is very common to, after working or analyzing data, present our data to an audience. In this session we will review some of the industry standards to convey our message, specially using Power BI.
 
 ### Where we left
 
-We have an application (PackOrg) which contains an App Service. This service holds and API that was programmed in C#. Every single request made to the API is recorded on an Application Insight, which stores them on a database. All this elements are stored in a resource group.
+Let's talked about the situation that we had, and their Azure elements.
+
+We have an application (PackOrg) which contains an App Service. This service holds and API that was programmed in C#. Every single request made to the API is recorded on an Application Insight, which stores them on a SQL database that is on a IaaS SQL Server. All this elements are stored in a resource group.
 
 Instead of querying our logs via Azure Portal, we are going to connect Power BI to that database so we can analyze them more efficiently.
 
@@ -85,7 +87,7 @@ Talking about context, we are going to ask ourselves several questions:
 
    Furthermore, we need to analyze the relationship between our audience and ourselves. If they know us or is the first time we address them, or even if we are experts in the topic or newbies.
 
-2. What - Action
+2. What - Action - What action do we want our audience to perform?.
 
    Mechanism - How are we going to make the presentation. Is it going to be asynchronous or synchronous? Are they going to consume our story via document, video, website? Should be create different layouts to be consumed on different devices?
 
@@ -121,10 +123,10 @@ Let's got to the **Data** view and create a new measure, called "Errors", where 
 We need to click on *New Measure* and type this formula:
 
 ```
-Errors = CALCULATE(Count('Audit'[Id]), 'Audit'[Status]<>"OK")
+Errors = CALCULATE(Count('Audit'[Id]), 'Audit'[Status] = "Error")
 ```
 
-After we have inserted this new measure,  we can drag our brand new measure to the Card visualization we created on the step before.
+After we have inserted this new measure,  we can drag our brand new measure to a new Card visualization in our dashboard.
 
 For our sake, let's assign the same color we have used for detecting colors. In this case orange. Remember: Color consistency is key in our visualizations and even more in our stories. We should arrange our visualizations in the dashboard now that we have more elements.
 
@@ -144,15 +146,15 @@ There are some attributes that can focus our audience directly, such as color, f
 
 ## 04 - Narrative structure.
 
-Now we are ready to talk about creating stories with data. In order to create a good story, like the one you can tell your kids before going to bed, we have to think like writers. The canonical structure of a story consists on beginning, middle and end.
+Last step is narrative structure. In order to create a good story, like the one you can tell your kids before going to bed, we have to think like writers. The canonical structure of a story consists on beginning, middle and end.
 
 ### Beginning
 
 - The setting: When and where does the story take place? 
-- The main character: Who is driving the action? 
-- The imbalance: Why is it necessary, what has changed? 
-- The balance: What do you want to see happen? 
-- The solution: How will you bring about the changes? 
+- The main character: Who is driving the action? - The audience, ourselves, a third party ...
+- The imbalance: Why is it necessary, what has changed?  - What is the problem we need to solve?
+- The balance: What do you want to see happen? - What is neede to reach an equilibrium?
+- The solution: How will you bring about the changes? - It is a good idea to give the solution in the first step, so the goal is clear throughout the presentation, and in the following steps we can back up our proposed solution with data and visualizations.
 
 ### Middle
 
@@ -179,7 +181,7 @@ One technique is to write **headlines** first, as if we were creating a storyboa
 
 Every story has an end. The best way of doing this on a presentation is to finish with a **call to action**.
 
-Some options that we have to do it are tie **the end with the beginning** (The end is the beginning is the end, reference to the Smashing Pumpkins song) or make a **recap** in order to reiterate a sense of urgency so our audience can go out from the meeting ready and willing to act.
+Some options that we have are tie **the end with the beginning** (The end is the beginning is the end, reference to the Smashing Pumpkins song) or make a **recap** in order to reiterate a sense of urgency so our audience can go out from the meeting ready and willing to act.
 
 ## 05 - Build a story with Power BI.
 
@@ -187,18 +189,18 @@ Let's talk about some general tips to consider on creating a story with Power BI
 
 - We can ( and must!) use the same visualization to highlight different points. - As we will see in our demo, it is very efficient to use the same graphic with the same data to highlight different points. For doing so, the most straightforward way is to apply different filters to the same visualization.
 - Keep in mind the way that your story is going to be told. - The story must be organized depending on the media that we are going to tell it. Are we going to create a poster? Is it going to be an static web? Are we going to publish it to an online site, so the user can consume it asynchronous? Is it going to be a live presentation, in front of an auditorium or via online? Remember what we have seen about creating different layouts for our visualizations.
-- Introduce plain text when needed. - It is one of the most underrated but most effective visualizations. Furthemore, we can insert text to highlight specific points. 
+- Introduce plain text when needed. - It is one of the most underrated but most effective visualizations. Furthermore, we can insert text to highlight specific points. 
 - Declutter and highlight. - Remember:  We need to remove noise, reduce cognitive load and we can draw attention using highlighting techniques.
-- Use pages as story points. - There are other visualizations tools that have specific objects to create stories. While this is nice, we can easily do it with Power BI using pages as story points. Create a page for each story point, using the features of copying pages if needed, and use them on telling your story.
-- Use page titles as story point legend. - Instead of leaving a default text in our pages, we can introduce text that not only will help us identify our visualizations if we have a big document, but can help us as a title for each story point.
+- Use pages as story points. - There are other visualizations tools that have specific objects to create stories. While this is nice, we can easily do it with Power BI using pages as story points. Create a page for each story point, using the features of copying pages if needed for duplicating story points, and use them on telling your story.
+- Use page titles as story point legend. - Instead of leaving a default text in our pages, we can introduce text that not only will help us identify our visualizations if we have a big document, but can be used as a title for each story point.
 
 ### Demo 03 - Storytelling with Data
 
-I have talked enough, so now I am going to show you the code, in this case, we are going to build our story. For this demo purpose, instead of starting from a blank Power BI file, we are going to start with the file that contains just our initial visualizations.
+I have talked enough, so now I am going to show you the code, in this case, we are going to build our story. For this demo purpose, instead of starting from a blank Power BI file, we are going to start with the file that contains our initial visualizations.
 
 For **context**, we are going to simulate that we are going to present how our website is behaving to our management department. We have a trusted relation with them, they have us in high esteem, and we have convinced them to present this data because we believe that some technical and marketing actions must be performed. Our story is going to be told online, via video-conference, sharing our screen that will be displayed in our main offices meeting room.
 
-As we already said, we are going to start from existing **visualizations**, that have been already **decluttered** and use **highlighting techniques**.
+As we already said, we are going to start from existing **visualizations**, that have been already **decluttered** and use **highlighting techniques**, but also we are going to create new visualizations to back up our point even more.
 
 Now it is the moment to work in the **narrative structure.** 
 
@@ -210,15 +212,15 @@ We need to create a new page, where we are going to, instead of adding a visuali
 
 *Insert > Text Box > Analyzing status visits to **PackOrg** during **2020*** (Font Size 80, center text, manually center text vertically)
 
-With this text we are explicitly saying that we are going to work about our app Packorg, focusing on 2020 data, but we are saying that we are going to talked about **status** and **visits**, thus we are setting the mood. 
+With this text we are explicitly saying that we are going to work about our app PackOrg, focusing on 2020 data, but we are saying that we are going to talk about **status** and **visits**, thus we are setting the mood. 
 
-The next thing that we can add are some visualizations to talked about the balance and the imbalance. We can use the page **Text** to talked about the amount of visits that we had but also we can start talking about the amount of errors we had.
+The next thing that we can add are some visualizations to talk about the balance and the imbalance. We can use the page **Text** to talk about the amount of visits that we had but also we can start talking about the amount of errors we had.
 
 Rename it to *What happened?*.
 
 #### Middle
 
-In this part we are going to focus on the visits and errors we had in our system, focusing on different topics. In order to do so, we are going to use our already created dashboard and simply rename it to *Oks and Errors*
+In this part we are going to talk about the visits and errors we had in our system, focusing on different topics. In order to do so, we are going to use our already created dashboard and simply rename it to *Oks and Errors*.
 
 During our analysis phase, we detected a couple of interesting things: Our visits increased from summer to **autumn**, during **working hours** the visits trend is different than considering the whole day and the country with more visits is **USA**.
 
@@ -226,15 +228,15 @@ What we are going to do is create a story point for each insight, but reusing th
 
 Right click on the page > Duplicate and rename it to *Autumn* . Add a filter to this page dragging from the fields pane the month (Date > Date hierarchy > Month) and manually selecting September, October and November.
 
-Repeat the process for the other insights: For working hours we are going to drag Hour to Filters on this page and select greater or equal than 9 and smaller or equal than 17 (5 pm)
+Repeat the process for the other insights: For working hours we are going to drag Hour to Filters on this page and select greater or equal than 9 and smaller or equal than 17 (5 pm).
 
 For USA, drag Country to filters on this page and selected United States.
 
-For marketing purposes, we are going to **compare visits from Portugal and France**, our neighbors and two of the most important countries in our business. We are going to create a new page, and insert a **Line Chart** visualization.
+For marketing purposes, we are going to **compare visits from Portugal and France**, our neighbors and two of the most important markets in our business. We are going to create a new page, and insert a **Line Chart** visualization.
 
 ![image-20211008175305767](C:\Users\francisco.cruzado\AppData\Roaming\Typora\typora-user-images\image-20211008175305767.png)
 
-There we are going to filter those countries, dragging Country to the **filters on this visual** and selecting them. We are going to drag 
+There we are going to filter these countries, dragging Country to the **filters on this visual** and selecting them. We are going to drag 
 
 - Month to Date
 - Country to Legend
@@ -252,7 +254,7 @@ Last step is to declutter our y-axis, removing the legend and gridlines (Y axis 
 
 Create a call to action
 
-While this is nice, it is not mandatory to have a single call to action. If needed, we can aditional calls to action, keeping in mind that including many of them can scatter our audience attention and lose focus on the desired actions.
+While having a call to action is very recommended, it is not mandatory to have a single call to action. If needed, we can add additional calls to action, keeping in mind that including many of them can scatter our audience attention and lose focus on the desired actions.
 
 We have detected two situations that must improve:
 
